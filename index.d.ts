@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2020 The Stdlib Authors.
@@ -16,15 +16,14 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 2.0
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var iterMap = require( '@stdlib/math-iter-tools-map' );
-var haversin = require( '@stdlib/math-base-special-haversin' );
+import { Iterator as Iter, IterableIterator } from '@stdlib/types/iter';
 
-
-// MAIN //
+// Define a union type representing both iterable and non-iterable iterators:
+type Iterator = Iter | IterableIterator;
 
 /**
 * Returns an iterator which iteratively computes the half-value versed sine.
@@ -33,12 +32,11 @@ var haversin = require( '@stdlib/math-base-special-haversin' );
 *
 * -   If an environment supports `Symbol.iterator` **and** a provided iterator is iterable, the returned iterator is iterable.
 *
-* @param {Iterator} iterator - input iterator
-* @throws {TypeError} must provide an iterator protocol-compliant object
-* @returns {Iterator} iterator
+* @param iterator - input iterator
+* @returns iterator
 *
 * @example
-* var uniform = require( '@stdlib/random-iter-uniform' );
+* var uniform = require( `@stdlib/random/iter/uniform` );
 *
 * var iter = iterHaversin( uniform( 0.0, 6.28 ) );
 *
@@ -53,11 +51,9 @@ var haversin = require( '@stdlib/math-base-special-haversin' );
 *
 * // ...
 */
-function iterHaversin( iterator ) {
-	return iterMap( iterator, haversin );
-}
+declare function iterHaversin( iterator: Iterator ): Iterator;
 
 
 // EXPORTS //
 
-module.exports = iterHaversin;
+export = iterHaversin;
